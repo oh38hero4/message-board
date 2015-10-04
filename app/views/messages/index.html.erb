@@ -13,30 +13,25 @@
 </div>
 
 <%= form_for(Message.new) do |f| %>
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+  <div class="row">
+    <form class="form-horizontal">
+      <div class="form-group" style="padding:15px 0">
+        <div class="col-xs-1 control-label">名前:</div>
+        <div class="col-xs-11">
+          <%= f.text_field :name,  class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group" style="padding:15px 0">
+        <div class="col-xs-1 control-label">内容:</div>
+        <div class="col-xs-11">
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group" style="padding:15px 0">
+        <div class="col-xs-offset-1 col-xs-11">
+          <%= f.submit class: "btn btn-primary btn-block form-control" %>  
+        </div>
+      </div>
+    </form>
+  </div>
 <% end %>
-
-
-
-<!--最初の記述を残しておく（比較のために）
-<h1>メッセージ一覧</h1>
-<%# @messages.each do |message| %>
-  名前:<%#= message.name %>
-  内容:<%#= message.body %>
-  <br>
-<%# end %>
-
-<%#= form_for(Message.new) do |f| %>
-  名前:
-  <%#= f.text_field :name %>
-
-  内容:
-  <%#= f.text_field :body %>
-  <%#= f.submit %>
-<%# end %>
--->
