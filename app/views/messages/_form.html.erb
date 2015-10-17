@@ -1,4 +1,4 @@
-<%= form_for(@message) do |f| %>
+<%= form_for(@message, html: { class:"form-horizontal"}) do |f| %>
   <% if @message.errors.present? %>
     <div class="alert alert-danger">
       <%= alert %>
@@ -12,10 +12,33 @@
     </div>
   <% end %>
 
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+<!--
+<div class="row">
+-->
+    <div class="form-group">
+      <div class="col-xs-1 control-label">名前:</div>
+      <div class="col-xs-11">
+        <%= f.text_field :name,  class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-1 control-label">年齢:</div>
+      <div class="col-xs-1">
+        <%= f.text_field :age, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-1 control-label">内容:</div>
+      <div class="col-xs-11">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-offset-1 col-xs-11">
+        <%= f.submit class: "btn btn-primary btn-block form-control" %>  
+      </div>
+    </div>
+<!--
+</div>
+-->
 <% end %>
